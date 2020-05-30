@@ -48,7 +48,7 @@
         <EditText
             android:id="@+id/cont"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="0.8"
             android:background="@null"
             android:gravity="center_vertical|end"
@@ -79,7 +79,7 @@
         <EditText
             android:id="@+id/cont1"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="0.8"
             android:background="@null"
             android:gravity="center_vertical|end"
@@ -110,7 +110,7 @@
         <EditText
             android:id="@+id/cont2"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="0.8"
             android:background="@null"
             android:gravity="center_vertical|end"
