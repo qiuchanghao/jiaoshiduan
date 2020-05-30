@@ -2,6 +2,7 @@ package com.example.jiaoshiduan;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,39 +29,65 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import java.util.ArrayList;
 
-public class MActivity extends AppCompatActivity {
-    private EditText name;
-    private EditText password;
-    private Button login_button;
-    private Button login_button1;
+public class MActivity extends AppCompatActivity implements View.OnClickListener {
+    private SqliteOpenHelper mDBOpenHelper;
+    private Button mTvRegister;
+    private EditText mEtUsername;
+    private EditText mEtPassword;
+    private Button mBtLogin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_m);
-        name= findViewById(R.id.name);
-        password= findViewById(R.id.password);
-        login_button= findViewById(R.id.login_button);
-        login_button1= findViewById(R.id.login_button1);
-        login_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String strUsername=password.getText().toString();
-                String strPassword=password.getText().toString();
-                if (strUsername.equals("admin")&&strPassword.equals("admin")){
-                    Toast.makeText(MActivity.this,"用户名密码正确",Toast.LENGTH_SHORT).show();
-                  startActivity(new Intent(MActivity.this,homeActivity.class));//显示吓一跳页面
-                }else {
-                    Toast.makeText(MActivity.this,"用户名或密码错误",Toast.LENGTH_SHORT).show();
+        initView();
+        mDBOpenHelper = new SqliteOpenHelper(this);
+    }
+    private void initView() {
+        // 初始化控件
+        mBtLogin = findViewById(R.id.login_button);
+        mTvRegister = findViewById(R.id.login_button1);
+        mEtUsername = findViewById(R.id.name);
+        mEtPassword = findViewById(R.id.password);
+        // 设置点击事件监听器
+        mBtLogin.setOnClickListener(this);
+        mTvRegister.setOnClickListener(this);
+    }
+    public void onClick(View view) {
+        switch (view.getId()) {
+            // 跳转到注册界面
+            case R.id.login_button1:
+                startActivity(new Intent(this, LoginActivity.class));
+                finish();
+                break;
+            case R.id.login_button:
+                String name = mEtUsername.getText().toString().trim();
+                String password = mEtPassword.getText().toString().trim();
+                if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(password)) {
+                    ArrayList<User> data = mDBOpenHelper.getAllData();
+                    boolean match = false;
+                    for (int i =0; i < data.size(); i++) {
+                        User user = data.get(i);
+                        if (name.equals(user.getName()) && password.equals(user.getPassword())) {
+                            match = true;
+                            break;
+                        } else {
+                            match = false;
+                        }
+                    }
+                    if (match) {
+                        Toast.makeText(this, "登录成功", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(this, homeActivity.class);
+                        startActivity(intent);
+                        finish();//销毁此Activity
+                    } else {
+                        Toast.makeText(this, "用户名或密码不正确，请重新输入", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(this, "请输入你的用户名或密码", Toast.LENGTH_SHORT).show();
                 }
-            }
-        });
-        login_button1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //开启一个新界面 activity的意思就是指界面
-                startActivity(new Intent(MActivity.this, LoginActivity.class));
-            }
-        });
+                break;
+        }
     }
 }
