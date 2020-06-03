@@ -58,14 +58,18 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 //获取用户输入的用户名、密码、验证码
                 String username = mEtUsername.getText().toString().trim();
                 String password = mEtPassword1.getText().toString().trim();
-                if (!TextUtils.isEmpty(username) && !TextUtils.isEmpty(password) ) {
-                    //将用户名和密码加入到数据库中
-                    mDBOpenHelper.add(username, password);
-                    Intent intent2 = new Intent(this, MActivity.class);
-                    startActivity(intent2);
-                    finish();
-                    Toast.makeText(this,  "验证通过，注册成功", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(LoginActivity.this, MActivity.class));
+                String password1 = mEtPassword2.getText().toString().trim();
+                if (!TextUtils.isEmpty(username) && !TextUtils.isEmpty(password)&& !TextUtils.isEmpty(password1) ) {
+                    if (password.equals(password1)) {
+                        //将用户名和密码加入到数据库中
+                        mDBOpenHelper.add(username, password);
+                        Intent intent2 = new Intent(this, MActivity.class);
+                        startActivity(intent2);
+                        finish();
+                        Toast.makeText(this,  "验证通过，注册成功", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(this, "密码不一致,注册失败", Toast.LENGTH_SHORT).show();
+                    }
                 }
                 else {
                     Toast.makeText(this, "未完善信息，注册失败", Toast.LENGTH_SHORT).show();
