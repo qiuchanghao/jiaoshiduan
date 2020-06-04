@@ -46,24 +46,25 @@
         android:layout_below="@id/huany"
         >
         <TextView
+            android:id="@+id/text11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="申报名称："
             android:layout_centerVertical="true"
             android:textColor="#ffffff"
             />
+
         <EditText
             android:id="@+id/cont"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.8"
             android:background="@null"
-            android:gravity="center_vertical|end"
+            android:layout_toRightOf="@+id/text11"
+            android:layout_centerInParent="true"
             android:hint="请输入名称"
             android:singleLine="true"
             android:textColor="#6f8587"
-            android:textSize="13sp"
-            />
+            android:textSize="20sp" />
     </RelativeLayout>
     <RelativeLayout
         android:id="@+id/item1"
@@ -78,7 +79,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp">
         <TextView
-            android:id="@+id/text1"
+            android:id="@+id/text12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -87,15 +88,15 @@
             />
         <EditText
             android:id="@+id/cont1"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.8"
             android:background="@null"
-            android:gravity="center_vertical|end"
+            android:layout_toRightOf="@+id/text12"
+            android:layout_centerInParent="true"
             android:hint="请输入类型"
             android:singleLine="true"
             android:textColor="#6f8587"
-            android:textSize="13sp"
+            android:textSize="20sp"
             />
     </RelativeLayout>
 
@@ -113,7 +114,7 @@
         android:paddingRight="20dp">
 
         <TextView
-            android:id="@+id/text2"
+            android:id="@+id/text13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="级别："
@@ -122,15 +123,15 @@
 
         <EditText
             android:id="@+id/cont2"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.8"
             android:background="@null"
-            android:gravity="center_vertical|end"
+            android:layout_toRightOf="@+id/text13"
+            android:layout_centerInParent="true"
             android:hint="请输入级别"
             android:singleLine="true"
             android:textColor="#6f8587"
-            android:textSize="13sp" />
+            android:textSize="20sp" />
     </RelativeLayout>
     <Button
         android:layout_width="wrap_content"
@@ -152,34 +153,36 @@
         android:gravity="center"
         android:orientation="horizontal"
         android:layout_marginTop="50dp"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
         android:layout_alignParentBottom="true"
         >
         <Button
             android:id="@+id/home1"
             android:layout_height="wrap_content"
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:text="home"
-            android:background="@null"
             android:textColor="#000000"
+            android:background="@null"
             android:layout_alignParentLeft="true"
 
             />
         <Button
             android:id="@+id/home3"
             android:layout_height="wrap_content"
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:text="two"
-            android:background="@null"
             android:textColor="#000000"
+            android:background="@null"
             android:layout_centerInParent="true"
             />
         <Button
             android:id="@+id/home2"
             android:layout_height="wrap_content"
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:text="个人信息"
-            android:background="@null"
             android:textColor="#000000"
+            android:background="@null"
             android:layout_alignParentRight="true"
             />
 

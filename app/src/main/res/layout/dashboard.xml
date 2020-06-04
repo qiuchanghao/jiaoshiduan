@@ -45,6 +45,8 @@
         android:orientation="horizontal"
         android:layout_marginTop="50dp"
         android:layout_alignParentBottom="true"
+        android:paddingRight="30dp"
+        android:paddingLeft="30dp"
         >
         <Button
             android:id="@+id/home1"

@@ -61,6 +61,7 @@ public class MActivity extends AppCompatActivity implements View.OnClickListener
         mEtUsername = findViewById(R.id.name);
         mEtPassword = findViewById(R.id.password);
         rememberPass=(CheckBox)findViewById(R.id.cb_auto);
+        pref=getSharedPreferences("cb_auto",Context.MODE_PRIVATE);
         boolean isRemember=pref.getBoolean("cb_auto",false);
         // 设置点击事件监听器
         mBtLogin.setOnClickListener(this);
@@ -101,7 +102,7 @@ public class MActivity extends AppCompatActivity implements View.OnClickListener
                         Toast.makeText(this, "登录成功", Toast.LENGTH_SHORT).show();
                         editor=pref.edit();
                         if(rememberPass.isChecked()){
-                            SharedPreferences.Editor editor=getSharedPreferences("data",MODE_PRIVATE).edit();
+                            SharedPreferences pref=getSharedPreferences("cb_auto",Context.MODE_PRIVATE);
                             editor.putBoolean("cb_auto",true);
                             editor.putString("name",name);
                             editor.putString("password",password);

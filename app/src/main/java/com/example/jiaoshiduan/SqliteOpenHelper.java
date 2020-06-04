@@ -6,10 +6,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
-/**
- * Created by littlecurl 2018/6/24
- */
-
 public class SqliteOpenHelper extends SQLiteOpenHelper {
     /**
      * 声明一个AndroidSDK自带的数据库变量db

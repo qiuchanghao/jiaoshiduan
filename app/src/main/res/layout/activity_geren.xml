@@ -10,27 +10,27 @@
     <RelativeLayout
         android:id="@+id/rela"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        >
-    <ImageView
-        android:id="@+id/h_back"
-        android:layout_width="wrap_content"
-        android:layout_height="199dp"
-        android:src="@drawable/ic_bjj"
-        />
-    <TextView
-        android:id="@+id/text_notifications"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="个人信息中心"
-        android:textSize="30dp"
-        android:layout_centerInParent="true"
-        android:layout_gravity="center"
-        android:textColor="#ffffff"
-        android:layout_marginTop="-80dp"
-        android:layout_marginBottom="70dp"
-        /></RelativeLayout>
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/h_back"
+            android:layout_width="match_parent"
+            android:layout_height="200dp" />
+
+
+        <ImageView
+            android:id="@+id/iv_personal_icon"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerInParent="true" />
+
+    </RelativeLayout><Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="上传头像"
+    android:layout_centerHorizontal="true"
+    android:layout_below="@+id/rela"
+    android:id="@+id/btn_change"/>
     <RelativeLayout
         android:id="@+id/item2"
         android:layout_width="match_parent"
@@ -38,27 +38,26 @@
         android:background="#ffffff"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:layout_below="@id/rela"
+        android:layout_below="@id/btn_change"
         android:paddingRight="20dp"
-        android:layout_marginTop="20dp"
         android:paddingLeft="20dp"
         android:paddingEnd="20dp"
         >
+
         <TextView
             android:id="@+id/text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="用户名："
-            android:layout_centerVertical="true"
-            android:textColor="#000000"
-            />
+            android:textColor="#000000" />
+
         <EditText
             android:id="@+id/cont2"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0.8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:background="@null"
-            android:gravity="center_vertical|end"
+            android:layout_toRightOf="@+id/text"
+            android:layout_centerInParent="true"
             android:hint=">"
             android:singleLine="true"
             android:textColor="#6f8587"
@@ -88,11 +87,11 @@
             />
         <EditText
             android:id="@+id/cont3"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0.8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:background="@null"
-            android:gravity="center_vertical|end"
+            android:layout_toRightOf="@+id/text3"
+            android:layout_centerInParent="true"
             android:hint=">"
             android:singleLine="true"
             android:textColor="#6f8587"
@@ -122,11 +121,11 @@
             />
         <EditText
             android:id="@+id/cont4"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0.8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:background="@null"
-            android:gravity="center_vertical|end"
+            android:layout_toRightOf="@+id/text4"
+            android:layout_centerInParent="true"
             android:hint=">"
             android:singleLine="true"
             android:textColor="#6f8587"
@@ -168,6 +167,8 @@
         android:gravity="center"
         android:orientation="horizontal"
         android:layout_marginTop="50dp"
+        android:paddingRight="30dp"
+        android:paddingLeft="30dp"
         android:layout_alignParentBottom="true"
         >
         <Button
