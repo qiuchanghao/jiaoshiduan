@@ -38,7 +38,6 @@ public class GerenActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 SharedPreferences pref=getSharedPreferences("cb_auto",MODE_PRIVATE);
-
                 if(pref!=null){
                     pref.edit().clear().commit();}
                 startActivity(new Intent(GerenActivity.this,MActivity.class));
