@@ -55,7 +55,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.login_button11:    //注册按钮
-                //获取用户输入的用户名、密码、验证码
+                //获取用户输入的用户名、密码、确认密码
                 String username = mEtUsername.getText().toString().trim();
                 String password = mEtPassword1.getText().toString().trim();
                 String password1 = mEtPassword2.getText().toString().trim();

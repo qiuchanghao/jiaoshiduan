@@ -4,6 +4,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 public class SqliteOpenHelper extends SQLiteOpenHelper {
@@ -21,7 +23,7 @@ public class SqliteOpenHelper extends SQLiteOpenHelper {
      * db = getReadableDatabase();
      */
     public SqliteOpenHelper(Context context){
-        super(context,"db_test",null,1);
+        super(context,"db_test",null,2);
         db = getReadableDatabase();
     }
 
@@ -36,13 +38,19 @@ public class SqliteOpenHelper extends SQLiteOpenHelper {
      */
     @Override
     public void onCreate(SQLiteDatabase db){
+        Log.e("SqliteOpenHelper","SqliteOpenHelperSqliteOpenHelperSqliteOpenHelper");
         db.execSQL("CREATE TABLE IF NOT EXISTS user(" +
                 "_id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "name TEXT," +
                 "password TEXT)");
     }
+
+
+
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
+        Log.e("onUpgrade","onUpgradeonUpgradeonUpgrade");
         db.execSQL("DROP TABLE IF EXISTS user");
         onCreate(db);
     }
@@ -63,6 +71,7 @@ public class SqliteOpenHelper extends SQLiteOpenHelper {
     public void updata(String password){
         db.execSQL("UPDATE user SET password = ?",new Object[]{password});
     }
+
 
     /**
      * 前三个没啥说的，都是一套的看懂一个其他的都能懂了
@@ -89,4 +98,5 @@ public class SqliteOpenHelper extends SQLiteOpenHelper {
         }
         return list;
     }
+
 }

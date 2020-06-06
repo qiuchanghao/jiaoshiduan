@@ -17,7 +17,6 @@ import android.widget.ImageView;
 public class GerenActivity extends AppCompatActivity {
     private Button home1;
     private Button Tiao;
-    private Button home3;
     private SharedPreferences pref;
     private SharedPreferences.Editor editor;
 
@@ -27,7 +26,6 @@ public class GerenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_geren);
         final Button loginButton=findViewById(R.id.home1);
         final Button Tiao=findViewById(R.id.tiao);
-        final Button loginButton1=findViewById(R.id.home3);
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -41,12 +39,6 @@ public class GerenActivity extends AppCompatActivity {
                 if(pref!=null){
                     pref.edit().clear().commit();}
                 startActivity(new Intent(GerenActivity.this,MActivity.class));
-            }
-        });
-        loginButton1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(GerenActivity.this,Dashboard.class));
             }
         });
     }
