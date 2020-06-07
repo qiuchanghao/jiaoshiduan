@@ -58,7 +58,7 @@ public class homeActivity extends AppCompatActivity implements View.OnClickListe
                 String type = c2.getText().toString().trim();
                 String rank = c3.getText().toString().trim();
                 if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(type) && !TextUtils.isEmpty(rank)) {
-                    penHelper.add(name, type, rank);
+                    penHelper.add(name,type,rank);
                     startActivity(new Intent(homeActivity.this,Dashboard.class));
                     Toast.makeText(this, "验证通过，提交成功", Toast.LENGTH_SHORT).show();
                 } else {
