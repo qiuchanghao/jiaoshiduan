@@ -23,7 +23,7 @@ public class SqliteOpenHelper extends SQLiteOpenHelper {
      * db = getReadableDatabase();
      */
     public SqliteOpenHelper(Context context){
-        super(context,"db_test",null,2);
+        super(context,"db_test",null,3);
         db = getReadableDatabase();
     }
 

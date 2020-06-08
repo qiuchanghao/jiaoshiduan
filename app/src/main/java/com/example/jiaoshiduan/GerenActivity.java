@@ -12,6 +12,7 @@ import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 
 public class GerenActivity extends AppCompatActivity {

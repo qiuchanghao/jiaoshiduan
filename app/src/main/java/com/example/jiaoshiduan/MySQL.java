@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class MySQL extends SQLiteOpenHelper {
     private SQLiteDatabase sql;
     public MySQL(Context context){
-        super(context,"db_test",null,3);
+        super(context,"db_test",null,6);
         sql = getReadableDatabase();
     }
     @Override
