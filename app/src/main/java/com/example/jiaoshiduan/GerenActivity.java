@@ -17,9 +17,10 @@ import android.widget.ImageView;
 
 public class GerenActivity extends AppCompatActivity {
     private Button home1;
-    private Button Tiao;
+    private Button Tiao,xiugai;
     private SharedPreferences pref;
     private SharedPreferences.Editor editor;
+    private EditText mEtUsername,mEtPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +28,14 @@ public class GerenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_geren);
         final Button loginButton=findViewById(R.id.home1);
         final Button Tiao=findViewById(R.id.tiao);
+        final Button xiugai=findViewById(R.id.text3);
+        mEtUsername = findViewById(R.id.cont2);
+        mEtPassword = findViewById(R.id.cont4);
+        SharedPreferences pref=getSharedPreferences("cb_auto",MODE_PRIVATE);
+        String name=pref.getString("name","");
+        String password=pref.getString("password","");
+        mEtUsername.setText(name);
+        mEtPassword.setText(password);
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,5 +51,12 @@ public class GerenActivity extends AppCompatActivity {
                 startActivity(new Intent(GerenActivity.this,MActivity.class));
             }
         });
+        xiugai.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(GerenActivity.this,ModifyPswActivity.class));
+            }
+        });
+
     }
 }
